@@ -1,4 +1,4 @@
-# _ASNEO: Alternative Splicing NEOantigens_
+# _ASNEO: identification of Alternative Splicing NEOantigens_
 
 ## Introduction
 ASNEO is a computational pipeline to identify personalized tumor neoantigens derived from alternative splicing.
