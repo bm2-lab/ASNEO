@@ -111,6 +111,6 @@ The output file "putative_neo.txt" contains all putative neoantigens information
 ASNEO: identification of personalized Alternative Splicing based NEOantigens with RNA-seq, submitted, 2019
 
 ## Contact
-1144626038@qq.com or qiliu@tongji.edu.cn
+zhangzb@tongji.edu.cn or qiliu@tongji.edu.cn
 
 Tongji University, Shanghai, China
