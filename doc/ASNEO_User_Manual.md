@@ -15,7 +15,7 @@ ASNEO is a computational pipeline to identify personalized tumor neoantigens der
 * pandas
 * sj2psi
 * pysam
-* biopyton
+* biopython
 
 ## Usage
 
