@@ -23,7 +23,7 @@ ASNEO is a computational pipeline to identify personalized tumor neoantigens der
 2. `STAR` mapped file: `SJ.out.tab` and `indexed bam`(optional)
 
 ### example
-1. git clone https://github.com/zzb23/ASNEO.git
+1. git clone https://github.com/bm2-lab/ASNEO.git
 2. cd ASNEO/src && tar -xzvf software.tar.gz 
 3. cd ../example && bash run_ASNEO.sh hg19.fa 
 > `hg19.fa` should change to your own reference genome file (must be hg19 or GRCh37)
