@@ -10,7 +10,7 @@ ASNEO is a computational pipeline to identify personalized tumor neoantigens der
 * pepmatch_db_x86_64 (a script in MuPeXI)
 * netMHCpan
 * netCTLpan
-> The software are packed in `src/softwares.tar.gz`
+> The software are packed in `src/software.tar.gz`
 
 ### python package
 * pandas
