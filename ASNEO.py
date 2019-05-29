@@ -2,7 +2,7 @@
 # -*- coding:utf-8 -*-
 
 from __future__ import print_function
-import os, logging, sj2psi, sys, subprocess, shutil
+import os, logging, sj2psi, sys, subprocess, shutil, pysam
 import pickle, tempfile, multiprocessing, warnings
 from subprocess import PIPE
 import pandas as pd
@@ -11,7 +11,7 @@ from math import log, exp
 from Bio import SeqIO, pairwise2
 from Bio.SubsMat import MatrixInfo as matlist
 from argparse import ArgumentParser
-#from xgboost import XGBClassifier
+from xgboost import XGBClassifier
 
 warnings.filterwarnings('ignore')
 logging.basicConfig(level=logging.INFO, format='%(asctime)s [%(levelname)s]:  %(message)s')
@@ -75,7 +75,6 @@ def FilterSJ(sj, reads, psi):
 
 
 def CalRPKM(iso, bam):
-    import pysam
     bam = pysam.AlignmentFile(bam, 'rb')
     all_chroms = ['chr' + str(i + 1) for i in range(22)] + ['chrX', 'chrY']
     bam_size = sum([stat.mapped for stat in bam.get_index_statistics() if stat.contig in all_chroms])
@@ -217,6 +216,11 @@ def GenKmerPep(protfa, peplen, save=None):
 def RunMHCpan(allele, peptxt, affit):
     cmd = '%s -a %s -p %s -BA > %s' % (path['netMHCpan'], allele, peptxt, affit)
     subprocess.call(cmd, shell=True)
+    with open(affit) as f:
+        line = f.readlines()[-1].strip()
+        if "Error" in line:
+            logging.error("Some error in call netMHCpan: %s"%line)
+            sys.exit(1)
 
 
 def ParseAffit(protfa, affit, epit, bind):
