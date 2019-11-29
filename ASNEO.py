@@ -11,6 +11,7 @@ from math import log, exp
 from Bio import SeqIO, pairwise2
 from Bio.SubsMat import MatrixInfo as matlist
 from argparse import ArgumentParser
+import sklearn
 from xgboost import XGBClassifier
 
 warnings.filterwarnings('ignore')
@@ -352,7 +353,9 @@ def FxScore(Rm, Rn, H, RA, mismatch, comb):
 
 def OneEpitScore(epit):
     allele, mtpep, mtpep_score, mtpep_aff, mtpep_rank, junc = epit.tolist()
-    while True:
+    i = 0
+    while i<3:
+        i += 1
         try:
             wtpep, mismatch = GetWildpep(mut_pep=mtpep)
             wtpep_score, wtpep_aff, wtpep_rank = GetMHCpan(allele=allele, pep=wtpep)
@@ -368,8 +371,8 @@ def OneEpitScore(epit):
             out = '\t'.join(map(str, (allele, str(mismatch), mtpep, mtpep_score, mtpep_aff, mtpep_rank, mtpep_comb,
                          wtpep, wtpep_score, wtpep_aff, wtpep_rank, wtpep_comb, H, R, score, junc)))
             return out
-        except:
-            logging.warning("Some error when process %s score, retry! ", mtpep)
+        except Exception as e:
+            logging.warning("Some error when process %s score, retry! error: %s" % (mtpep, e))
 
 
 def ProcessNeo(process):
