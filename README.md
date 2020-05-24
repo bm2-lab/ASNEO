@@ -34,7 +34,7 @@ ASNEO is a computational pipeline to identify personalized tumor neoantigens der
 For detailed usage information, please refer to the [ASNEO User Manual](/doc/ASNEO_User_Manual.md)
 
 ## Citation
-ASNEO: identification of personalized Alternative Splicing based NEOantigens with RNA-seq, submitted, 2019
+ASNEO: identification of personalized Alternative Splicing based NEOantigens with RNA-seq, submitted, 2020
 
 ## Contact
 zhangzb@tongji.edu.cn or qiliu@tongji.edu.cn
